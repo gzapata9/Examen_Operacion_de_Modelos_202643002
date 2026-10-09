@@ -8,7 +8,7 @@ class Entrada(BaseModel):
     
     id_paquete: str = Field(min_length=1)
     peso_kg: float = Field(gt=0,le=30)
-    distancia_km: float = Field(ge=0,le=200)
+    distancia_km: int = Field(ge=0,le=200)
 
     @field_validator("id_paquete", mode="before")
     @classmethod
