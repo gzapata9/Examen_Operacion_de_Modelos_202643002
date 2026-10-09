@@ -71,7 +71,8 @@ def ejecutar(entrada: Path, modelo: Path, salida: Path) -> None:
     model = cargar_modelo(modelo)
 
     for i in lista_entrada:
-        resultado_predict = predecir(i, model)
+        entrada_valor = Entrada(**i.dict())
+        resultado_predict = predecir(entrada_valor, model)
         lista_salida.append(resultado_predict)
 
     guardar_csv(lista_salida, salida)
